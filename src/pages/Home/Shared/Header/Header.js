@@ -29,7 +29,7 @@ const Header = () => {
         </ul>
       </li>
       <li>
-        <a>Item 3</a>
+        <a href="#">Item 3</a>
       </li>
     </>
   );
