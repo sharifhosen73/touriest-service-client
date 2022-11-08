@@ -6,7 +6,12 @@ const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   console.log(user);
   const handleLogOut = () => {
-    logOut().then().catch();
+    logOut()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((err) => console.error(err));
   };
 
   const menuItems = (
@@ -14,19 +19,26 @@ const Header = () => {
       <Link className="mr-5 pt-2" to="/">
         Home
       </Link>
+
       <Link className="mr-5 pt-2" to="/blog">
         Blog
       </Link>
-
-      <Link className="mr-5" to="/signin">
-        <button className="btn btn-active btn-primary">Sign In</button>
-      </Link>
-      <Link className="mr-5" to="/signup">
-        <button className="btn btn-active btn-primary"> Sign Up</button>
-      </Link>
-      <button onClick={handleLogOut} className="btn btn-active btn-primary">
-        Sign Out
-      </button>
+      {user?.uid ? (
+        <>
+          <button onClick={handleLogOut} className="btn btn-active btn-primary">
+            Sign Out
+          </button>
+        </>
+      ) : (
+        <>
+          <Link className="mr-5" to="/signin">
+            <button className="btn btn-active btn-primary">Sign In</button>
+          </Link>
+          <Link className="mr-5" to="/signup">
+            <button className="btn btn-active btn-primary"> Sign Up</button>
+          </Link>
+        </>
+      )}
     </>
   );
 
@@ -58,13 +70,12 @@ const Header = () => {
               {menuItems}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <Link to="/" className="btn btn-ghost normal-case text-xl">
+            Tourist Services
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">{menuItems}</ul>
-        </div>
-        <div className="navbar-end">
-          <a className="btn">Get started</a>
         </div>
       </div>
     </div>

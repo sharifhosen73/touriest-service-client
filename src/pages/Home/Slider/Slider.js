@@ -13,7 +13,7 @@ const Slider = () => {
       prev: 4,
       id: 1,
       next: 2,
-      place: "Rangamati Hill",
+      place: "Chittagong Hill Tracks",
     },
     {
       image: image2,
