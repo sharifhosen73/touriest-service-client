@@ -12,6 +12,9 @@ const Place = () => {
   }, []);
   return (
     <div className="my-20">
+      <h2 className="text-5xl text-orange-600 text-center mb-8 font-bold">
+        Popular Tourist Spot
+      </h2>
       <div className="grid grid-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-10">
         {places.map((place) => (
           <SinglePlace key={place.id} place={place} />

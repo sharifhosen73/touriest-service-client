@@ -10,7 +10,17 @@ const SinglePlace = ({ place }) => {
       </figure>
       <div className="card-body">
         <h2 className="card-title">{name}</h2>
-        <p className="text-justify">{description}</p>
+        <div className="text-justify">
+          {description?.length > 100 ? (
+            <p>
+              {description.slice(0, 100) + "..."}
+              <Link to={`/place/${id}`}>Read More</Link>
+            </p>
+          ) : (
+            <p>{description}</p>
+          )}
+        </div>
+
         <div className="card-actions justify-end">
           <Link to={`/place/${id}`}>
             <button className="btn btn-primary">Book Now</button>
