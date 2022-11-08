@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../context/AuthProvider";
 
 const Header = () => {
-  const { logOut } = useContext(AuthContext);
-
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
   const handleLogOut = () => {
     logOut().then().catch();
   };
@@ -17,6 +17,7 @@ const Header = () => {
       <Link className="mr-5 pt-2" to="/blog">
         Blog
       </Link>
+
       <Link className="mr-5" to="/signin">
         <button className="btn btn-active btn-primary">Sign In</button>
       </Link>
