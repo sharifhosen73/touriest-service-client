@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SinglePlace = ({ place }) => {
-  const { id, name, img, description } = place;
+  const { _id, name, img, description } = place;
   return (
     <div className="card card-compact w-96 bg-base-100 shadow-xl mb-4">
       <figure>
@@ -14,7 +14,9 @@ const SinglePlace = ({ place }) => {
           {description?.length > 100 ? (
             <p>
               {description.slice(0, 100) + "..."}
-              <Link to={`/place/${id}`}>Read More</Link>
+              <Link className="text-blue-800 ml-2" to={`/place/${_id}`}>
+                Read More
+              </Link>
             </p>
           ) : (
             <p>{description}</p>
@@ -22,7 +24,7 @@ const SinglePlace = ({ place }) => {
         </div>
 
         <div className="card-actions justify-end">
-          <Link to={`/place/${id}`}>
+          <Link to={`/place/${_id}`}>
             <button className="btn btn-primary">Book Now</button>
           </Link>
         </div>

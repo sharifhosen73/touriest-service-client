@@ -4,7 +4,7 @@ import { AuthContext } from "../../../../context/AuthProvider";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+
   const handleLogOut = () => {
     logOut()
       .then((result) => {
@@ -16,11 +16,11 @@ const Header = () => {
 
   const menuItems = (
     <>
-      <Link className="mr-5 pt-2" to="/">
+      <Link className="mr-5 pt-4" to="/">
         Home
       </Link>
 
-      <Link className="mr-5 pt-2" to="/blog">
+      <Link className="mr-5 pt-4" to="/blog">
         Blog
       </Link>
       {user?.uid ? (

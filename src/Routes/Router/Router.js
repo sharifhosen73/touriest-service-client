@@ -4,6 +4,7 @@ import Place from "../../pages/Home/Place/Place";
 import PlaceItem from "../../pages/Home/PlaceItem/PlaceItem";
 import Main from "../../pages/Layout/Main";
 import SignUp from "../../pages/SignUp/SignUp";
+import PrivateRouter from "../PrivateRouter/PrivateRouter";
 import SignIn from "./../../pages/SignIn/SignIn";
 
 export const router = createBrowserRouter([
@@ -22,9 +23,13 @@ export const router = createBrowserRouter([
 
       {
         path: "/place/:id",
-        element: <PlaceItem />,
+        element: (
+          <PrivateRouter>
+            <PlaceItem />
+          </PrivateRouter>
+        ),
         loader: ({ params }) => {
-          return fetch(`place.json/place/${params.id}`);
+          return fetch(`http://localhost:5000/place/${params.id}`);
         },
       },
       {

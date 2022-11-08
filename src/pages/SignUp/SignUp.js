@@ -1,12 +1,13 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
 const provider = new GoogleAuthProvider();
 
 const SignUp = () => {
   const { createUser, providerLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleGoogle = () => {
     providerLogin(provider);
@@ -20,9 +21,12 @@ const SignUp = () => {
     const password = form.password.value;
 
     createUser(email, password)
-      .than((result) => {
+      .then((result) => {
         const user = result.user;
         console.log(user);
+        alert("SignUp successfully");
+        navigate("/");
+        form.reset();
       })
       .catch((error) => {
         console.error(error);

@@ -6,7 +6,7 @@ const Place = () => {
   const [places, setPlaces] = useState([]);
 
   useEffect(() => {
-    fetch("place.json")
+    fetch("http://localhost:5000/place")
       .then((res) => res.json())
       .then((data) => setPlaces(data));
   }, []);
@@ -17,7 +17,7 @@ const Place = () => {
       </h2>
       <div className="grid grid-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-10">
         {places.map((place) => (
-          <SinglePlace key={place.id} place={place} />
+          <SinglePlace key={place._id} place={place} />
         ))}
       </div>
       <Link to="/place" className="lg:ml-96">

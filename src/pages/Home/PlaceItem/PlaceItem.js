@@ -1,12 +1,25 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const PlaceItem = () => {
-  const place = useLoaderData();
-  console.log(place);
+  const { name, img, description, price } = useLoaderData();
+
   return (
-    <div>
-      <h1 className="text-5xl">{place.name}</h1>
+    <div className="card card-compact mx-auto w-3/4 bg-base-100 shadow-xl mt-8">
+      <figure>
+        <img className="h-96 w-full" src={img} alt="Shoes" />
+      </figure>
+      <div className="card-body">
+        <h2 className="card-title text-3xl">{name}</h2>
+        <h2 className="card-title text-2xl">Cost: {price}</h2>
+        <p className="text-justify">{description}</p>
+
+        <div className="card-actions justify-end">
+          <Link to="/">
+            <button className="btn btn-outline btn-primary">Go To Home</button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

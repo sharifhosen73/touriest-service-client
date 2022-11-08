@@ -1,6 +1,6 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
 const provider = new GoogleAuthProvider();
@@ -8,8 +8,21 @@ const provider = new GoogleAuthProvider();
 const SignIn = () => {
   const { login, providerLogin } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
   const handleGoogle = () => {
-    providerLogin(provider);
+    providerLogin(provider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   const handleSignIn = (e) => {
@@ -20,9 +33,12 @@ const SignIn = () => {
     const password = form.password.value;
 
     login(email, password)
-      .than((result) => {
+      .then((result) => {
         const user = result.user;
         console.log(user);
+        alert("Login Successfully");
+        navigate(from, { replace: true });
+        form.reset();
       })
       .catch((error) => {
         console.error(error);
@@ -63,9 +79,8 @@ const SignIn = () => {
               </Link>
             </label>
           </div>
-          <div className="form-control mt-6">
-            <button className="btn btn-primary">Sign Up</button>
-          </div>
+          <input type="submit" className="btn btn-primary" value="Sign In" />
+
           <button onClick={handleGoogle} className="btn btn-active btn-primary">
             Sign In With Google
           </button>
