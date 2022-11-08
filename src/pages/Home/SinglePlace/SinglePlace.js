@@ -1,13 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const SinglePlace = ({ place }) => {
   const { _id, name, img, description } = place;
   return (
     <div className="card card-compact w-96 bg-base-100 shadow-xl mb-4">
-      <figure>
-        <img className="h-60 w-full" src={img} alt="Shoes" />
-      </figure>
+      <PhotoProvider>
+        <PhotoView src={img}>
+          <img src={img} className="h-60 w-full" alt="" />
+        </PhotoView>
+      </PhotoProvider>
+
       <div className="card-body">
         <h2 className="card-title">{name}</h2>
         <div className="text-justify">
