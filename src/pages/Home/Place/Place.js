@@ -17,8 +17,8 @@ const Place = () => {
           <SinglePlace key={place.id} place={place} />
         ))}
       </div>
-      <Link to="/place" className="align-center">
-        <button className="btn btn-outline btn-secondary px-24 mx-auto">
+      <Link to="/place" className="lg:ml-96">
+        <button className="btn btn-outline btn-secondary px-24 ml-16 lg:ml-20">
           All Places
         </button>
       </Link>

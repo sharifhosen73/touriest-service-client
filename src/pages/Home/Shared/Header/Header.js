@@ -31,10 +31,10 @@ const Header = () => {
         </>
       ) : (
         <>
-          <Link className="mr-5" to="/signin">
+          <Link className="mt-2 lg:mr-5" to="/signin">
             <button className="btn btn-active btn-primary">Sign In</button>
           </Link>
-          <Link className="mr-5" to="/signup">
+          <Link className="mt-2 lg:mr-5" to="/signup">
             <button className="btn btn-active btn-primary"> Sign Up</button>
           </Link>
         </>
@@ -65,7 +65,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 justify-center"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 "
             >
               {menuItems}
             </ul>

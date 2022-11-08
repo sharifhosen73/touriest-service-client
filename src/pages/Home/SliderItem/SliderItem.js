@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./SliderItem.css";
 
 const SliderItem = ({ slide }) => {
@@ -13,9 +14,11 @@ const SliderItem = ({ slide }) => {
           WelCome To Our Website
         </h1>
         <h3 className="text-xl font-bold text-white lg:my-10">{place}</h3>
-        <button className="btn btn-outline btn-secondary px-16 text-xl">
-          See All
-        </button>
+        <Link to="/place">
+          <button className="btn btn-outline btn-secondary px-16 text-xl">
+            See All
+          </button>
+        </Link>
       </div>
 
       <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
