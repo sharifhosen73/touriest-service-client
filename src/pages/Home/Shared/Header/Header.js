@@ -1,36 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../../../context/AuthProvider";
 
 const Header = () => {
+  const { logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut().then().catch();
+  };
+
   const menuItems = (
     <>
-      <li>
-        <a>Home</a>
-      </li>
-      <li tabIndex={0}>
-        <a>
-          Parent
-          <svg
-            className="fill-current"
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-          >
-            <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-          </svg>
-        </a>
-        <ul className="p-2">
-          <li>
-            <a>Submenu 1</a>
-          </li>
-          <li>
-            <a>Submenu 2</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">Item 3</a>
-      </li>
+      <Link className="mr-5 pt-2" to="/">
+        Home
+      </Link>
+      <Link className="mr-5 pt-2" to="/blog">
+        Blog
+      </Link>
+      <Link className="mr-5" to="/signin">
+        <button className="btn btn-active btn-primary">Sign In</button>
+      </Link>
+      <Link className="mr-5" to="/signup">
+        <button className="btn btn-active btn-primary"> Sign Up</button>
+      </Link>
+      <button onClick={handleLogOut} className="btn btn-active btn-primary">
+        Sign Out
+      </button>
     </>
   );
 
@@ -57,7 +52,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 justify-center"
             >
               {menuItems}
             </ul>
