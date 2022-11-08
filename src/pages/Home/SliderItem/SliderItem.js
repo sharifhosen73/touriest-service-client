@@ -10,7 +10,7 @@ const SliderItem = ({ slide }) => {
       </div>
       <div className="absolute lg:ml-20 ">
         <h1 className="text-5xl font-bold text-white lg:mt-20 ">
-          WellCome To Our Website
+          WelCome To Our Website
         </h1>
         <h3 className="text-xl font-bold text-white lg:my-10">{place}</h3>
         <button className="btn btn-outline btn-secondary px-16 text-xl">

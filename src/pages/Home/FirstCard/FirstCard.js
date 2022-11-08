@@ -11,7 +11,7 @@ const FirstCard = () => {
         />
         <div className="w-1/2">
           <h1 className="text-5xl font-bold">Day trip to Viñales Valley</h1>
-          <p className="py-6">
+          <p className="py-6 text-justify">
             Escape the busy life of Havana and get lost in nature on this day
             tour. Visit the tobacco plantations of Viñales, where the best
             tobacco in the world grows. You will stop at a cigar factory to

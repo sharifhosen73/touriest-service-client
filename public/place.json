@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Sundarbans",
+        "img": "https://blog.flyticket.com.bd/wp-content/uploads/2020/05/image001.jpg",
+        "description":"Sundarbans has declared World Heritage Site by UNESCO which is the largest Mangrove Forest situated between two countries. It is the kingdom of Royal Bengal tiger and you will find various kinds of species of birds, animals & plants and I think you should visit the tranquilizing beauty of Sundarbans once in your life."
+    },
+    {
+        "id": 2,
+        "name": "Rangamati",
+        "img": "https://blog.flyticket.com.bd/wp-content/uploads/2020/05/image007.jpg",
+        "description":"The District of Chittagong Hill Tracks area in Rangamati, a place full of natural amusement and here, here, you can find a man-made lake surrounded by Hill called Kaptai Lake where you can take a ride by boat all over the day, a Buddhist Monastery here named Rajban Bihara, a high-quality handicrafts market made by the tribal of Rangamati."
+    },
+    {
+        "id": 3,
+        "name": "Chittagong Hill Tracks ",
+        "img": "https://blog.flyticket.com.bd/wp-content/uploads/2020/05/image003.jpg",
+        "description":"Hills are always enchanting to the tourist and as a tourist, you should obviously visit Chittagong Hill Tracks once which is the home of many tribal and you can discover yourself in the amazing green view. Chittagong Hill Tracks is the best place for making an adventurous tour and for this you have to take permission from the authority."
+    },
+    {
+        "id": 4,
+        "name": "Ahsan Manzil ",
+        "img": "https://blog.flyticket.com.bd/wp-content/uploads/2020/05/image015-1536x1031.jpg",
+        "description":"Lalbag Fort or Aurangabad is another most famous historical place in Bangladesh. It is situated beside the Buriganga River, in the southwestern part of Dhaka, Bangladesh. It was built by Mudmhammad Azam in 1678. Lalbag Fort represents the incomplete dream of the Mughal prince. The fort remained incomplete after the death of Prince Azam.  "
+    },
+    {
+        "id": 5,
+        "name": "Bisanakandi ",
+        "img": "https://blog.flyticket.com.bd/wp-content/uploads/2020/05/image017.jpg",
+        "description":"Undoubtedly it is a great sign of natural beauty surrounded by hills and stones. For its natural beauty, it has become a popular tourist center in Bangladesh. It is situated at the Bangladesh-Sylhet border in Sylhet. In the rainy season it looks like the clouds hugging the mountains, so, winter is not a suitable season for visiting."
+    },
+    {
+        "id": 6,
+        "name": "Jaflong ",
+        "img": "https://blog.flyticket.com.bd/wp-content/uploads/2020/05/image019.jpg",
+        "description":"This place is situated at the Bangladesh-India border. It is one of the most attractive places in Bangladesh. It is also an adventurous place. It is a hilly area and you can enjoy the waterfall on the way of Jaflong to Sylhet. The hills of Jaflong are greenish with forest and there are many wild animals in the forest. Tea garden and zero points are the most beautiful spot of Jaflong."
+    }
+]
