@@ -20,7 +20,9 @@ export const router = createBrowserRouter([
       {
         path: "/place/:id",
         element: <PlaceItem />,
-        loader: ({ params }) => fetch(`place.json/place/${params.id}`),
+        loader: ({ params }) => {
+          return fetch(`place.json/place/${params.id}`);
+        },
       },
     ],
   },

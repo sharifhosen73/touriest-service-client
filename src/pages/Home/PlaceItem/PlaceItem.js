@@ -6,7 +6,7 @@ const PlaceItem = () => {
   console.log(place);
   return (
     <div>
-      <h1></h1>
+      <h1 className="text-5xl">{place.name}</h1>
     </div>
   );
 };
