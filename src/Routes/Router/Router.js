@@ -4,7 +4,9 @@ import Home from "../../pages/Home/Home/Home";
 import Place from "../../pages/Home/Place/Place";
 import PlaceItem from "../../pages/Home/PlaceItem/PlaceItem";
 import Review from "../../pages/Home/Review/Review";
+import Update from "../../pages/Home/Update/Update";
 import Main from "../../pages/Layout/Main";
+import NotFound from "../../pages/NotFound/NotFound";
 import SignUp from "../../pages/SignUp/SignUp";
 import PrivateRouter from "../PrivateRouter/PrivateRouter";
 import SignIn from "./../../pages/SignIn/SignIn";
@@ -29,6 +31,16 @@ export const router = createBrowserRouter([
             <Review />
           </PrivateRouter>
         ),
+      },
+      {
+        path: "/review/:id",
+        element: (
+          <PrivateRouter>
+            <Update />
+          </PrivateRouter>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/review/${params.id}`),
       },
       {
         path: "/all-review",
@@ -58,5 +70,9 @@ export const router = createBrowserRouter([
         element: <SignUp />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);

@@ -1,47 +1,46 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-import { AuthContext } from "../../../context/AuthProvider";
+import { useLoaderData } from "react-router-dom";
 
-const Review = () => {
-  const { user } = useContext(AuthContext);
+const Update = () => {
+  const allReview = useLoaderData();
+  const { _id, name, photoURL, email, spot, message } = allReview;
+  const [review, setReview] = useState(allReview);
 
-  const handleReview = (e) => {
+  const handleUpdateReview = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const name = form.name.value;
-    const email = user?.email;
-    const photoURL = form.photoURL.value;
-    const spot = form.spot.value;
-    const message = form.message.value;
 
-    const data = {
-      name,
-      email,
-      photoURL,
-      spot,
-      message,
-    };
-
-    fetch("http://localhost:5000/review", {
-      method: "POST",
+    // Patch Method
+    fetch(`http://localhost:5000/review/${_id}`, {
+      method: "PATCH",
       headers: {
-        "Content-Type": "application/json",
+        "content-type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(review),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        res.json();
+      })
       .then((data) => console.log(data));
+  };
+
+  const handleOnChange = (e) => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newReview = { ...review };
+    newReview[field] = value;
+    setReview(newReview);
   };
 
   return (
     <div className="hero mt-10">
       <Helmet>
-        <title>Review</title>
+        <title>Update Review</title>
       </Helmet>
 
       <div className="card flex-shrink-0 w-3/5  shadow-2xl bg-base-100">
-        <h1 className="text-3xl font-bold text-center mt-5">Review</h1>
-        <form onSubmit={handleReview} className="card-body">
+        <h1 className="text-3xl font-bold text-center mt-5">Update Review</h1>
+        <form onSubmit={handleUpdateReview} className="card-body">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Name</span>
@@ -49,6 +48,8 @@ const Review = () => {
             <input
               type="text"
               name="name"
+              onChange={handleOnChange}
+              defaultValue={name}
               placeholder="Your Name"
               className="input input-bordered"
               required
@@ -62,6 +63,8 @@ const Review = () => {
             <input
               type="text"
               name="photoURL"
+              onChange={handleOnChange}
+              defaultValue={photoURL}
               placeholder="Photo URL"
               className="input input-bordered"
               required
@@ -75,6 +78,8 @@ const Review = () => {
             <input
               type="text"
               name="spot"
+              onChange={handleOnChange}
+              defaultValue={spot}
               placeholder="Tourist Spot"
               className="input input-bordered"
               required
@@ -88,7 +93,8 @@ const Review = () => {
             <input
               type="email"
               name="email"
-              defaultValue={user?.email}
+              onChange={handleOnChange}
+              defaultValue={email}
               placeholder="email"
               className="input input-bordered"
               required
@@ -102,15 +108,21 @@ const Review = () => {
             <textarea
               className="textarea textarea-bordered h-24"
               name="message"
+              onChange={handleOnChange}
+              defaultValue={message}
               placeholder="Message"
             ></textarea>
           </div>
 
-          <input type="submit" className="btn btn-primary" value="Add Review" />
+          <input
+            type="submit"
+            className="btn btn-primary"
+            value="Update Review"
+          />
         </form>
       </div>
     </div>
   );
 };
 
-export default Review;
+export default Update;
