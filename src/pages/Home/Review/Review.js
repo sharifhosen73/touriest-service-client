@@ -13,7 +13,24 @@ const Review = () => {
     const photoURL = form.photoURL.value;
     const spot = form.spot.value;
     const message = form.message.value;
-    console.log(name, photoURL, email, spot, message);
+
+    const data = {
+      name,
+      email,
+      photoURL,
+      spot,
+      message,
+    };
+
+    fetch("http://localhost:5000/review", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
 
   return (

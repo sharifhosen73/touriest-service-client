@@ -16,15 +16,18 @@ const Header = () => {
 
   const menuItems = (
     <>
-      <Link className="mr-5 pt-4" to="/">
+      <Link className="mr-5 pt-3" to="/">
         Home
       </Link>
 
-      <Link className="mr-5 pt-4" to="/blog">
+      <Link className="mr-5 pt-3" to="/blog">
         Blog
       </Link>
       {user?.uid ? (
         <>
+          <Link className="mr-5 pt-3" to="/review">
+            Review
+          </Link>
           <button onClick={handleLogOut} className="btn btn-active btn-primary">
             Sign Out
           </button>

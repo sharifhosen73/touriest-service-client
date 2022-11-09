@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
-import Review from "../Review/Review";
 
 const SinglePlace = ({ place }) => {
   const { _id, name, img, price, description } = place;
@@ -38,7 +37,6 @@ const SinglePlace = ({ place }) => {
           </div>
         </div>
       </div>
-      <Review />
     </div>
   );
 };
