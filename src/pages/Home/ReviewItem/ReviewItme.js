@@ -1,4 +1,5 @@
 import React from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const ReviewItme = ({ review }) => {
@@ -9,7 +10,10 @@ const ReviewItme = ({ review }) => {
     fetch(`http://localhost:5000/review/${_id}`, {
       method: "DELETE",
     })
-      .then((res) => res.json())
+      .then((res) => {
+        res.json();
+        toast.success("Successfully Deleted");
+      })
       .then((data) => console.log(data));
   };
 

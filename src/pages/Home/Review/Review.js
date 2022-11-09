@@ -44,7 +44,7 @@ const Review = () => {
         <title>Review</title>
       </Helmet>
 
-      <div className="card flex-shrink-0 w-3/5  shadow-2xl bg-base-100">
+      <div className="card flex-shrink-0 w-full lg:w-3/5  shadow-2xl bg-base-100">
         <h1 className="text-3xl font-bold text-center mt-5">Review</h1>
         <form onSubmit={handleReview} className="card-body">
           <div className="form-control">

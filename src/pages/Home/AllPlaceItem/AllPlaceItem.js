@@ -27,6 +27,11 @@ const AllPlaceItem = ({ place }) => {
             <p>{description}</p>
           )}
         </div>
+        <div className="card-actions justify-end">
+          <Link to={`/place/${_id}`}>
+            <button className="btn btn-primary">Book Now</button>
+          </Link>
+        </div>
       </div>
     </div>
   );
