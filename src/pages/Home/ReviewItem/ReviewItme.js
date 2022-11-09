@@ -1,7 +1,17 @@
 import React from "react";
 
 const ReviewItme = ({ review }) => {
-  const { name, photoURL, email, spot, message } = review;
+  const { _id, name, photoURL, email, spot, message } = review;
+
+  // Delete Method
+  const handleDelete = () => {
+    fetch(`http://localhost:5000/review/${_id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
+
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure className=" px-10 pt-10">
@@ -13,7 +23,9 @@ const ReviewItme = ({ review }) => {
         <h2 className="card-title">{email}</h2>
         <p>{message}</p>
         <div className="card-actions flex justify-between">
-          <button className="btn btn-primary">Delete</button>
+          <button onClick={() => handleDelete(_id)} className="btn btn-primary">
+            Delete
+          </button>
           <button className="btn btn-primary">Update</button>
         </div>
       </div>
