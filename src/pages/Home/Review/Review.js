@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../../../context/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const Review = () => {
   const { user } = useContext(AuthContext);
@@ -29,7 +30,11 @@ const Review = () => {
       },
       body: JSON.stringify(data),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        res.json();
+        toast.success("Successfully Review Added");
+        form.reset();
+      })
       .then((data) => console.log(data));
   };
 

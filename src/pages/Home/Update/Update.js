@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const Update = () => {
   const allReview = useLoaderData();
   const { _id, name, photoURL, email, spot, message } = allReview;
   const [review, setReview] = useState(allReview);
+  const navigate = useNavigate();
 
   const handleUpdateReview = (e) => {
     e.preventDefault();
@@ -20,6 +21,7 @@ const Update = () => {
     })
       .then((res) => {
         res.json();
+        navigate("/all-review");
       })
       .then((data) => console.log(data));
   };

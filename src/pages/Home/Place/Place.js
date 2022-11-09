@@ -4,18 +4,22 @@ import SinglePlace from "../SinglePlace/SinglePlace";
 
 const Place = () => {
   const [places, setPlaces] = useState([]);
-  const [size, SetSize] = useState(3);
+  const [size, setSize] = useState(3);
 
   const handlePlaceS = () => {
-    SetSize(6);
+    const url = "http://localhost:3000/place";
+    if (url) {
+      setSize(6);
+    }
   };
+
   console.log(size);
 
   useEffect(() => {
-    fetch("http://localhost:5000/place")
+    fetch(`http://localhost:5000/place?size=${size}`)
       .then((res) => res.json())
       .then((data) => setPlaces(data));
-  }, []);
+  }, [size]);
   return (
     <div className="my-20">
       <h2 className="text-5xl text-orange-600 text-center mb-8 font-bold">

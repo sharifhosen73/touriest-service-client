@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import { Helmet } from "react-helmet";
+import toast from "react-hot-toast";
 
 const provider = new GoogleAuthProvider();
 
@@ -17,7 +18,7 @@ const SignUp = () => {
   const handleSignUp = (e) => {
     e.preventDefault();
     const form = e.target;
-    const name = form.name.value;
+    // const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
 
@@ -25,7 +26,7 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        alert("SignUp successfully");
+        toast.success("Successfully Sign Up");
         navigate("/");
         form.reset();
       })

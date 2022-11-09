@@ -1,6 +1,7 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { Helmet } from "react-helmet";
+import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
@@ -37,7 +38,7 @@ const SignIn = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        alert("Login Successfully");
+        toast.success("Successfully Sign In");
         navigate(from, { replace: true });
         form.reset();
       })
