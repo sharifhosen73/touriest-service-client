@@ -2,12 +2,16 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import { Helmet } from "react-helmet";
 
 const PlaceItem = () => {
   const { name, img, description, price } = useLoaderData();
 
   return (
     <div className="card card-compact mx-auto w-3/4 bg-base-100 shadow-xl mt-8">
+      <Helmet>
+        <title>Tourist Spot</title>
+      </Helmet>
       <PhotoProvider>
         <PhotoView src={img}>
           <img src={img} alt="" />

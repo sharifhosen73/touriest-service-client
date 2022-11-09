@@ -2,6 +2,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const provider = new GoogleAuthProvider();
 
@@ -34,6 +35,9 @@ const SignUp = () => {
   };
   return (
     <div className="hero min-h-screen bg-base-200">
+      <Helmet>
+        <title>Sign Up</title>
+      </Helmet>
       <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <h1 className="text-3xl font-bold text-center mt-5">Sign Up</h1>
         <form onSubmit={handleSignUp} className="card-body">

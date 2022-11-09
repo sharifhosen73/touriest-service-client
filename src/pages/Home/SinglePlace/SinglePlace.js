@@ -4,7 +4,7 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 
 const SinglePlace = ({ place }) => {
-  const { _id, name, img, description } = place;
+  const { _id, name, img, price, description } = place;
   return (
     <div className="card card-compact w-96 bg-base-100 shadow-xl mb-4">
       <PhotoProvider>
@@ -15,6 +15,7 @@ const SinglePlace = ({ place }) => {
 
       <div className="card-body">
         <h2 className="card-title">{name}</h2>
+        <h2 className="card-title">Cost: {price}</h2>
         <div className="text-justify">
           {description?.length > 100 ? (
             <p>
