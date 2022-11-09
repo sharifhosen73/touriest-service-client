@@ -28,6 +28,9 @@ const Header = () => {
           <Link className="mr-5 pt-3" to="/review">
             Review
           </Link>
+          <Link className="mr-5 pt-3" to="/all-review">
+            All Review
+          </Link>
           <button onClick={handleLogOut} className="btn btn-active btn-primary">
             Sign Out
           </button>
