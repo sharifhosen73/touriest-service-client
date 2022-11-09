@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
+import toast from "react-hot-toast";
 import { useLoaderData, useNavigate } from "react-router-dom";
 
 const Update = () => {
@@ -22,6 +23,7 @@ const Update = () => {
       .then((res) => {
         res.json();
         navigate("/all-review");
+        toast.success("Successfully Update");
       })
       .then((data) => console.log(data));
   };

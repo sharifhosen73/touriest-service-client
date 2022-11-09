@@ -20,6 +20,7 @@ const Place = () => {
       .then((res) => res.json())
       .then((data) => setPlaces(data));
   }, [size]);
+
   return (
     <div className="my-20">
       <h2 className="text-5xl text-orange-600 text-center mb-8 font-bold">
@@ -30,7 +31,7 @@ const Place = () => {
           <SinglePlace key={place._id} place={place} />
         ))}
       </div>
-      <Link to="/place" className="lg:ml-96">
+      <Link to="/all-place" className="lg:ml-96">
         <button
           onClick={handlePlaceS}
           className="btn btn-outline btn-secondary px-24 ml-16 lg:ml-20"
