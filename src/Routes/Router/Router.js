@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import AllPlace from "../../pages/Home/AllPlace/AllPlace";
 import AllReview from "../../pages/Home/AllReview/AllReview";
+import Blog from "../../pages/Home/Blog/Blog";
 import Home from "../../pages/Home/Home/Home";
 import Place from "../../pages/Home/Place/Place";
 import PlaceItem from "../../pages/Home/PlaceItem/PlaceItem";
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
       },
       {
         path: "/place",
