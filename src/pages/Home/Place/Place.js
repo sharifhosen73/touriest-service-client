@@ -4,6 +4,12 @@ import SinglePlace from "../SinglePlace/SinglePlace";
 
 const Place = () => {
   const [places, setPlaces] = useState([]);
+  const [size, SetSize] = useState(3);
+
+  const handlePlaceS = () => {
+    SetSize(6);
+  };
+  console.log(size);
 
   useEffect(() => {
     fetch("http://localhost:5000/place")
@@ -21,7 +27,10 @@ const Place = () => {
         ))}
       </div>
       <Link to="/place" className="lg:ml-96">
-        <button className="btn btn-outline btn-secondary px-24 ml-16 lg:ml-20">
+        <button
+          onClick={handlePlaceS}
+          className="btn btn-outline btn-secondary px-24 ml-16 lg:ml-20"
+        >
           All Places
         </button>
       </Link>

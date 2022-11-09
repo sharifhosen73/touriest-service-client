@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../../pages/Home/Home/Home";
 import Place from "../../pages/Home/Place/Place";
 import PlaceItem from "../../pages/Home/PlaceItem/PlaceItem";
+import Review from "../../pages/Home/Review/Review";
 import Main from "../../pages/Layout/Main";
 import SignUp from "../../pages/SignUp/SignUp";
 import PrivateRouter from "../PrivateRouter/PrivateRouter";
@@ -20,7 +21,14 @@ export const router = createBrowserRouter([
         path: "/place",
         element: <Place />,
       },
-
+      {
+        path: "/review",
+        element: (
+          <PrivateRouter>
+            <Review />
+          </PrivateRouter>
+        ),
+      },
       {
         path: "/place/:id",
         element: (
