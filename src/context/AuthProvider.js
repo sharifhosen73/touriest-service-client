@@ -44,6 +44,7 @@ const AuthProvider = ({ children }) => {
 
   const logOut = () => {
     setLoading(true);
+    localStorage.removeItem("place-token");
     return signOut(auth);
   };
 

@@ -13,7 +13,7 @@ const Update = () => {
     e.preventDefault();
 
     // Patch Method
-    fetch(`http://localhost:5000/review/${_id}`, {
+    fetch(`https://touriest-service-server.vercel.app/review/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

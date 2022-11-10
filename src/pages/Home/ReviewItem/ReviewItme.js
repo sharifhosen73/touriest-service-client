@@ -7,7 +7,7 @@ const ReviewItme = ({ review }) => {
 
   // Delete Method
   const handleDelete = () => {
-    fetch(`http://localhost:5000/review/${_id}`, {
+    fetch(`https://touriest-service-server.vercel.app/review/${_id}`, {
       method: "DELETE",
     })
       .then((res) => {

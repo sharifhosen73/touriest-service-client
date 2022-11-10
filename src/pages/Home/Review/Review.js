@@ -23,7 +23,7 @@ const Review = () => {
       message,
     };
 
-    fetch("http://localhost:5000/review", {
+    fetch("https://touriest-service-server.vercel.app/review", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

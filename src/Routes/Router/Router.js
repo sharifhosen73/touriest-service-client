@@ -50,7 +50,9 @@ export const router = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/review/${params.id}`),
+          fetch(
+            `https://touriest-service-server.vercel.app/review/${params.id}`
+          ),
       },
       {
         path: "/all-review",
@@ -68,7 +70,9 @@ export const router = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/place/${params.id}`);
+          return fetch(
+            `https://touriest-service-server.vercel.app/place/${params.id}`
+          );
         },
       },
       {

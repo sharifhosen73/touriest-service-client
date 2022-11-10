@@ -7,7 +7,7 @@ const AllPlace = () => {
   const [places, setPlaces] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/place`)
+    fetch(`https://touriest-service-server.vercel.app/place`)
       .then((res) => res.json())
       .then((data) => setPlaces(data));
   }, []);

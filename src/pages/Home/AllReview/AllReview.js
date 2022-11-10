@@ -1,14 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../context/AuthProvider";
 import ReviewItme from "../ReviewItem/ReviewItme";
 
 const AllReview = () => {
+  const { user, logOut } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/review")
-      .then((res) => res.json())
+    fetch(`https://touriest-service-server.vercel.app/review?${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("place-token")}`,
+      },
+    })
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          logOut();
+        }
+        return res.json();
+      })
       .then((data) => setReviews(data));
-  }, []);
+  }, [user?.email]);
 
   return (
     <div>

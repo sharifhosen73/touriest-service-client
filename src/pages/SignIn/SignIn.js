@@ -8,7 +8,7 @@ import { AuthContext } from "../../context/AuthProvider";
 const provider = new GoogleAuthProvider();
 
 const SignIn = () => {
-  const { login, providerLogin } = useContext(AuthContext);
+  const { user, login, providerLogin } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -41,6 +41,26 @@ const SignIn = () => {
         toast.success("Successfully Sign In");
         navigate(from, { replace: true });
         form.reset();
+
+        const currentUser = {
+          email: user.email,
+        };
+
+        //get jwt token
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            // local storage store jwt token
+            localStorage.setItem("place-token", data.token);
+            navigate(from, { replace: true });
+          });
       })
       .catch((error) => {
         console.error(error);
